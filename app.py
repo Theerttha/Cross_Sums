@@ -1,12 +1,15 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import os
-
 app = Flask(__name__)
 
 # Database configuration
 if os.environ.get('RENDER'):  # Running on Render
     database_url = "postgresql://database_9oxp_user:BNSEJQEDmUsIqJlKH5iKNKMW1eG8Pmx1@dpg-ctnejidumphs73c5tqa0-a/database_9oxp"
+else:
+    database_url="postgresql://database_9oxp_user:BNSEJQEDmUsIqJlKH5iKNKMW1eG8Pmx1@dpg-ctnejidumphs73c5tqa0-a:5432/database_9oxp"
+    #postgresql://database_9oxp_user:BNSEJQEDmUsIqJlKH5iKNKMW1eG8Pmx1@dpg-ctnejidumphs73c5tqa0-a.3oregon-postgres.render.com/database_9oxp
+
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
