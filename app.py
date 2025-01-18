@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect,session
 from flask_sqlalchemy import SQLAlchemy
-from flask_session import Session
 from datetime import timedelta, datetime
 import os, random,time
 from database import db
