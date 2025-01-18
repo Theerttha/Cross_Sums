@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div interface_content>
+        <h class="interface_text">
+            CROSS SUMS
+        </h>
+        <form action="/interface" method="POST" name="interface_buttons">
+            <button type="submit" name="interface_buttons" value={{1}}>
+                Play game!!
+            </button>
+            <button type="submit" name="interface_buttons" value={{2}}>
+                Leaderboard
+            </button>
+
+        </form>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div id="iframe-container">
+        <iframe class="iframe" src="/time" title="show_time" loading="lazy">
+
+        </iframe>
+
+    </div>
+
+
+    <div class="hearts">
+        {% for i in range(hearts) %}   
+            <img src="{{ url_for('static', filename='images/heart.png') }}" class="heart_image" alt="Heart">
+        {% endfor %}
+    </div>
+    <div class="board">
+        <div class="col_sum_box">
+            {% for i in col_sum %}
+            <div class="col_sum">{{i}}</div>
+            {% endfor %}
+        </div>
+        <div class="second_box">
+        {% for i in board %}
+            <div class="row_sum_box">
+                <h class="grid_numbers">{{ row_sum[loop.index0] }}</h>
+            </div>
+            {% set k=loop.index0 %}
+            <div class="grid">
+                {% for j in i %}
+                    {% set p=loop.index0 %}
+                    <form action="/game" method="POST" name="get_data">
+                        {% if row[k]==0 %}
+                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: lightblue;">
+                                {{ j }}
+                            </button>
+                        {% elif col[p]==0 %}
+                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: lightblue;">
+                                {{ j }}
+                            </button>
+                        {% else %}
+                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: lightpink;">
+                                {{ j }}
+                            </button>
+                        {% endif %}
+                    </form>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        
+
+        </div>
+        
+            
+    </div>
+
+    
+{% endblock %}

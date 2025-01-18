@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% block content %}
+    <div class="result">
+        {% if res==1 %}
+            <h class="result_text">YOU WON!!!</h>        
+            {% set hour = (time // 3600) | int %}
+            {% set min = ((time % 3600) // 60) | int %}
+            {% set sec = (time % 60) | int %}
+            {% if hour>9 %}
+                {% set s = s ~ hour %}
+            {% else %}
+                {% set s = s ~ '0' ~ hour %}
+            {% endif %}
+                
+            {% if min>9 %}
+                {% set s = s ~ ':' ~ min %}
+            {% else %}
+                {% set s = s ~ ':0' ~ min %}
+            {% endif %}
+            
+            {% if sec>9 %}
+                {% set s = s ~ ':' ~ sec %}
+            {% else %}
+                {% set s = s ~ ':0' ~ sec %}
+            {% endif %}
+            <h class="result_text"> {{s}}</h>
+        {% else %}
+            <h class="result_text">YOU LOST!!!</h>
+        {% endif %}
+    </div>
+    <div class="result_buttons">
+    <form action="/result" method="POST" name="result_buttons">
+        <button class="play_again" name="result_buttons" value={{1}}>
+            Play again!!!
+        </button>
+        <button class="leaderboard" name="result_buttons" value={{2}}>
+            Leaderboard
+        </button>
+    </form>
+    </div>
+{% endblock %}

@@ -1,13 +1,10 @@
 {% extends "index.html" %}
 {% block content %}
-    <h>
-        rhg
-    </h>
+
     <form action="/register" method="POST">
         <div class="reg" id="reg">
             <h class="reg_text">Enter username</h>
             <input type="text" class="reg_input" name="user_register" id="user_register">
-
             {% if reg_user_exists==True %}
                 <h class="exists_message">
                     Username exists

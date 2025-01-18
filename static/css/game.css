@@ -1,0 +1,68 @@
+
+.heart_image{
+    height: 50;
+    width: 50px;
+}
+.board{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    
+}
+.grid_numbers{
+    color:blue;
+    
+}
+.grid{
+    background-color: blueviolet;
+    display: flex;
+    
+    height: 80px;
+
+}
+.grid_numbers_button{
+    width: 80px;
+    height: 80px;
+}
+.col_sum_box,.hearts{
+    display: flex;
+    flex-basis: 80px;
+    align-items: center;
+    text-align: center;
+    margin-left: 80px;
+}
+.col_sum{
+    width: 80px;
+}
+.second_box{
+    display: grid;
+    grid-template-columns: 80px auto;
+}
+.row_sum_box{
+    display: grid;
+    background-color: maroon;
+    align-items: center;
+    text-align: center;
+}
+.iframe-container{
+    width: 700px;
+    height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: none;
+}
+
+
+.stopwatch{
+    color: lawngreen;
+    font-size: 30px;
+}
+.result_text{
+    color: bisque;
+}
+.table_head{
+    color:lightskyblue;
+}
+.table_content{
+    background-color: lightcoral;
+}

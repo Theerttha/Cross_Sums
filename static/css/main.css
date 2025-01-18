@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(0, 0, 0);
+    background-color: black;
     display: grid;
     justify-content: center;
 }
@@ -15,6 +15,7 @@ body{
     background-color: rgb(36, 36, 36);
 
 }
+
 .input_login,.reg_input{
     width: 350px;
     background-color: #A3C1AD;
