@@ -10,7 +10,7 @@ if os.environ.get('RENDER'):  # Running on Render
     database_url = os.environ.get('DATABASE_URL')
     if database_url and database_url.startswith("postgres://"):
         database_url = database_url.replace("postgres://", "postgresql://", 1)
-
+database_url="postgresql://database_9oxp_user:BNSEJQEDmUsIqJlKH5iKNKMW1eG8Pmx1@dpg-ctnejidumphs73c5tqa0-a.oregon-postgres.render.com/database_9oxp"
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
@@ -116,7 +116,6 @@ def register():
 def game():
     
     if request.method=='GET':
-    
         grid=[]
         row_sum=[]
         col_sum=[]
@@ -124,7 +123,9 @@ def game():
         print(session)
         if 'username' in session:
             print("True")
-
+            User_name=session['username']
+            session.clear()
+            session['username']=User_name
         else:
             return "error"
         n=4
@@ -175,7 +176,8 @@ def game():
         x=request.form['get_data'].split(',')
         x[0]=int(x[0])
         x[1]=int(x[1])
-        print(x,session['grid'])
+        if (session['grid'][x[0]][x[1]]==" "):
+            return render_template("game.html",board=session['grid'],row_sum=session['row_sum'],col_sum=session['col_sum'],hearts=session['lives'],row=session['row'],col=session['col'])
         grid=session['grid']
         row=session['row']
         col=session['col']
@@ -208,18 +210,24 @@ def result():
     print("sesson")
     if request.method=='GET':
         print(session)
+
         if session['result']==1:
+            
+            
             end_time=time.time()
             period=end_time-session['begin_time']
             new_tuple = Userlog(username=session['username'], time=int(period))
+
             try:
                 db.session.add(new_tuple)
                 db.session.commit()
             except Exception as e:
                 db.session.rollback()
                 return "error"
+ 
             return render_template("result.html", res=session['result'],time=period)
         else:
+
             return render_template("result.html", res=session['result'])
     if request.method=="POST":
         res=request.form["result_buttons"]
@@ -247,7 +255,8 @@ def interface():
             return redirect(url_for('game'))
         elif next_page=="2":
             return redirect(url_for('leaderboard'))
-
+        elif next_page=="0":
+            return redirect(url_for('login'))
 @app.route('/leaderboard',methods=['GET'])
 def leaderboard():
     if request.method=='GET':

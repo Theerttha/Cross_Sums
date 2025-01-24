@@ -1,22 +1,39 @@
 {% extends "index.html" %}
 
-{% block content %}
-    <div interface_content>
-        <h class="interface_text">
-            CROSS SUMS
-        </h>
-        <form action="/interface" method="POST" name="interface_buttons">
-            <button type="submit" name="interface_buttons" value={{1}}>
-                Play game!!
-            </button>
-            <button type="submit" name="interface_buttons" value={{2}}>
-                Leaderboard
-            </button>
-            <button type="submit" name="interface_buttons" value="{{0}}">
-                Logout
-            </button>
-        </form>
-
+{% block buttons %}
+<form action="/interface" method="POST" name="interface_buttons">
+    <div class="top_buttons">
+        <button type="submit" name="interface_buttons" value={{2}} class="leaderboard_button">
+            Leaderboard
+        </button>
+        <button type="submit" name="interface_buttons" value="{{0}}" class="logout_button">
+            Logout
+        </button>
 
     </div>
+
+</form>
+{% endblock %}
+{% block content %}
+ 
+    <div class="interface_box">
+        <div class="interface_text_box">
+            <h class="interface_text">
+                CROSS SUMS
+            </h>
+        </div>
+        <div class="interface_playbutton">
+            <form action="/interface" method="POST" name="interface_buttons">
+                <button type="submit" name="interface_buttons" value={{1}} class="interface_button">
+                    Play game!!
+                </button>
+                    
+            </form>
+
+        </div>
+
+
+     </div>
+
+
 {% endblock %}

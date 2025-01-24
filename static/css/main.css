@@ -1,7 +1,26 @@
-body{
+.body{
     background-color: black;
     display: grid;
     justify-content: center;
+}
+.main_body{
+    background-color: black;
+}
+.top_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    background-color: black;
+    column-gap: 15px;
+}
+.leaderboard_button,.logout_button{
+    background-color: #A3C1AD;
+    font-family: Atma;
+    font-size: 25px;
+    cursor: pointer;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
 }
 .main,.reg{
     display: grid;
@@ -90,4 +109,40 @@ body{
     border-style: solid;
     border-color:#A3C1AD;
 
+}
+.interface_box{
+    margin-top: 70px;
+    display: grid;
+    
+    row-gap: 20px;    
+}
+
+.interface_playbutton{
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #5F9EA0;
+    background-color: #5F9EA0;
+    display: grid;
+    justify-content: center;
+    
+}
+.interface_text{
+    color: aliceblue;
+    font-size: 80px;
+    font-family: 'Atma';
+    background-color: #008E97;
+    border-style: solid;
+    border-color: black;
+    border-radius: 30px;
+}
+
+.interface_button{  
+    font-family: Atma;
+    font-size: 50px;
+    cursor: pointer;
+    background-color: #5F9EA0;
+    border-style: none;
+   
+
+    
 }
