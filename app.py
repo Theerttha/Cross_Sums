@@ -81,8 +81,7 @@ def login():
                 return redirect(url_for('interface'))
             else:
                 return "2"
-                print(2)
-            print(3)
+                print(3)
             #return redirect(url_for('game_db'))
     else:
         print("else")
