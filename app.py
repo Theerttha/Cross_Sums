@@ -10,7 +10,7 @@ if os.environ.get('RENDER'):  # Running on Render
     database_url = os.environ.get('DATABASE_URL')
     if database_url and database_url.startswith("postgres://"):
         database_url = database_url.replace("postgres://", "postgresql://", 1)
-database_url="postgresql://database_9oxp_user:BNSEJQEDmUsIqJlKH5iKNKMW1eG8Pmx1@dpg-ctnejidumphs73c5tqa0-a.oregon-postgres.render.com/database_9oxp"
+database_url="postgresql://pheonix_protocol:15oCUeAKcbej9PnPEtlQd4WWImruy1HL@dpg-cuahs0tsvqrc73dp1uvg-a.oregon-postgres.render.com/community_r69k"
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
@@ -63,29 +63,31 @@ class Userlog(db.Model):
 
 @app.route('/', methods=['POST', 'GET'])
 def login():
-
     if request.method == 'POST':
-  
+        reg=request.form.get("register_button")
+        if reg is not None:
+      
+            return redirect(url_for('register'))
         user_name = request.form['user']
         pass_word = request.form['password']
         
         user = User.query.filter_by(username=user_name, password=pass_word).first()
-    
+        login=request.form.get("login_button")
         if user:
             session.clear()
             session['username']=user_name
 
-            if 'username' in session:
-                print(1)
-                #return "1"
+   
+                
+            if login is not None:
                 return redirect(url_for('interface'))
             else:
-                return "2"
-                print(3)
-            #return redirect(url_for('game_db'))
+                return render_template('login.html',user_exists=True)
+        else:
+            return render_template('login.html',user_exists=False)
     else:
-        print("else")
-    return render_template('login.html')
+        return render_template('login.html',user_exists=True)
+        
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -101,7 +103,6 @@ def register():
         new_user = User(username=user_reg, password=pass_word_reg)
         try:
             session.clear()
-            session['a']='b'
             db.session.add(new_user)
             db.session.commit()
             return render_template('login.html')

@@ -1,25 +1,32 @@
 {% extends "index.html" %}
-
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/game.css')}}">
+{% endblock %}
 {% block buttons %}
-    <div id="iframe-container">
-        <iframe class="iframe" src="/time" title="show_time" loading="lazy">
 
-        </iframe>
+    <div class="top_box">
+        <div class="left_side" id="iframe-container">
+            <iframe class="iframe" src="/time" title="show_time" loading="lazy">
+    
+            </iframe>
+    
+        </div>
+        <div class="right_side">
+            <form action="/interface" method="POST" name="interface_buttons">
+                <div class="top_buttons">
+                    <button type="submit" name="interface_buttons" value={{2}} class="leaderboard_button">
+                        Leaderboard
+                    </button>
+                    <button type="submit" name="interface_buttons" value="{{0}}" class="logout_button">
+                        Logout
+                    </button>
+            
+                </div>
+            
+            </form>
 
-    </div>
-    <div class="top_right">
-        <form action="/interface" method="POST" name="interface_buttons">
-            <div class="top_buttons">
-                <button type="submit" name="interface_buttons" value={{2}} class="leaderboard_button">
-                    Leaderboard
-                </button>
-                <button type="submit" name="interface_buttons" value="{{0}}" class="logout_button">
-                    Logout
-                </button>
-        
-            </div>
-        
-        </form>
+        </div>
+
 
     </div>
 
@@ -50,15 +57,15 @@
                     {% set p=loop.index0 %}
                     <form action="/game" method="POST" name="get_data">
                         {% if row[k]==0 %}
-                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: lightblue;">
+                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color:#6BC8F5;">
                                 {{ j }}
                             </button>
                         {% elif col[p]==0 %}
-                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: lightblue;">
+                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: #6BC8F5;">
                                 {{ j }}
                             </button>
                         {% else %}
-                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: lightpink;" >
+                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color:#5F9EA0;" >
                                 {{ j }}
                             </button>
                         {% endif %}

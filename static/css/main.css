@@ -1,79 +1,150 @@
-.body{
-    background-color: black;
+
+.main_body{
+    background-color: #000;
+
+}
+.body {
+
+
     display: grid;
     justify-content: center;
+    padding: 20px;
+    font-family: 'Shadows Into Light', sans-serif;
 }
-.main_body{
-    background-color: black;
+.top_part{
+
+    display: block;
+    
+
 }
-.top_buttons{
+.top_buttons {
     display: flex;
+
     flex-direction: row;
-    justify-content: right;
-    background-color: black;
+    justify-content: end;
+
+  
+
     column-gap: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.leaderboard_button,.logout_button{
+  .leaderboard_button, .logout_button {
+  
     background-color: #A3C1AD;
-    font-family: Atma;
+    font-family: 'Atma', sans-serif;
     font-size: 25px;
     cursor: pointer;
     border-style: solid;
     border-radius: 10px;
-    border-color: black;
-}
-.main,.reg{
+    border-color: #000;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  .leaderboard_button:hover, .logout_button:hover {
+    background-color: #badbc5;
+  }
+  
+  .main, .reg {
     display: grid;
     margin-top: 100px;
-    border-color: #72A0C1;
+    border-color: #A3C1AD;
     border-radius: 10px;
     border-width: 3px;
-    border-style:solid;
+    border-style: solid;
     justify-content: center;
-    width:400px;
-    background-color: rgb(36, 36, 36);
-
-}
-
-.input_login,.reg_input{
+    width: 400px;
+ 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .reg {
+    background-color: black;
+    border-color: #89CFF0;;
+    box-shadow: 0 0 10px rgba(139, 195, 74, 0.5);
+  }
+  
+  .reg .reg_text {
+    color: #5F9EA0;
+    font-size: 30px;
+    font-family: 'Shadows Into Light', sans-serif;
+    letter-spacing: 3px;
+  }
+  
+  .reg .reg_input {
+    background-color: #89CFF0;
+    width: 350px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-family: 'Shadows Into Light', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .reg .registerin {
+    background-color: #6BC8F5;
+    justify-self: center;
+    padding: 10px 20px;
+    font-size: 25px;
+    font-family: 'Atma', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+ 
+  .input_login, .reg_input {
     width: 350px;
     background-color: #A3C1AD;
     height: 30px;
     margin-bottom: 10px;
-    font-family: Shadows Into Light;
+    font-family: 'Shadows Into Light', sans-serif;
     font-size: 20px;
     letter-spacing: 3px;
-}
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-color: #A3C1AD;
+  }
 .text_login,.reg_text{
     margin-top: 10px;
-    color: #5F9EA0;
+    color: #A3C1AD;
     font-size: 30px;
-    font-family: Shadows Into Light;
+
     letter-spacing: 3px;
 }
-.login,.registerin{
-    background-color: #89CFF0;
+.login, .registerin,.register_button{
+    background-color: #89a392;
     justify-self: center;
-    margin-bottom: 20px;
-    font-family: Jua;
-    font-size: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-   
+    padding: 10px 20px;
+    font-size: 25px;
+    font-family: 'Atma', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+.registerin:hover {
+    background-color: #5aa3c7;
+  }
+.login:hover{
+    background-color: #728679;
 }
-.register_button_text{
-    font-family: Jua;
-    font-size: 30px;
-    color: black;
-   
-
+  
+.register_button{
+    font:"Shadow Into Light";
 }
 .exists_message{
     font-size:20px;
-    font-family: Shadows Into Light;
-    color: #DC143C;
+
+    color: white;
     letter-spacing: 2px;
     margin-bottom: 20px;
     font-weight:bold;
@@ -87,8 +158,8 @@
 }
 .register_text{
     margin-top: 10px;
-    color: #AFEEEE;
-    font-family: Shadows Into Light;
+    color: white;
+
     font-size:20px;
     letter-spacing: 2px;
     font-weight: 2px;
@@ -99,16 +170,21 @@
 }
 .register_button{
    
-    background-color: #008E97;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    font-family: Jua;
-    font-size:20px;
-    border-style: solid;
-    border-color:#A3C1AD;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 
+    font-size:40px;
+    border-style: solid;
+    border-color:white;
+
+
+}
+.register_button:hover{
+    background-color: #89a392;
+    cursor: pointer;
 }
 .interface_box{
     margin-top: 70px;
@@ -126,6 +202,10 @@
     justify-content: center;
     
 }
+.interface_button:hover, .interface_playbutton:hover{
+    background-color: #80ccce;
+}
+
 .interface_text{
     color: aliceblue;
     font-size: 80px;
@@ -142,7 +222,85 @@
     cursor: pointer;
     background-color: #5F9EA0;
     border-style: none;
-   
-
     
 }
+/* Large screens (Desktops) */
+
+@media (min-width: 1200px) {
+    .main_body {
+      padding: 40px;
+    }
+    .main, .reg {
+      width: 600px;
+    }
+    .input_login, .reg_input {
+      width: 550px;
+    }
+    .top_buttons {
+      padding: 20px;
+    }
+    .leaderboard_button, .logout_button {
+      font-size: 30px;
+    }
+  }
+  
+  /* Medium screens (Laptops) */
+  
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .main_body {
+      padding: 20px;
+    }
+    .main, .reg {
+      width: 500px;
+    }
+    .input_login, .reg_input {
+      width: 450px;
+    }
+    .top_buttons {
+      padding: 15px;
+    }
+    .leaderboard_button, .logout_button {
+      font-size: 25px;
+    }
+  }
+  
+  /* Small screens (Tablets) */
+  
+  @media (min-width: 480px) and (max-width: 767px) {
+    .main_body {
+      padding: 10px;
+    }
+    .main, .reg {
+      width: 400px;
+    }
+    .input_login, .reg_input {
+      width: 350px;
+    }
+    .top_buttons {
+      padding: 10px;
+    }
+    .leaderboard_button, .logout_button {
+      font-size: 20px;
+    }
+  }
+  
+  /* Extra small screens (Mobiles) */
+  
+  @media (max-width: 479px) {
+    .main_body {
+      padding: 5px;
+    }
+    .main, .reg {
+      width: 300px;
+    }
+    .input_login, .reg_input {
+      width: 250px;
+    }
+    .top_buttons {
+      padding: 5px;
+      flex-direction: column;
+    }
+    .leaderboard_button, .logout_button {
+      font-size: 18px;
+    }
+  }

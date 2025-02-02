@@ -1,20 +1,33 @@
 
+.main_body{
+    background-color: #000;
+
+    
+}
+.body {
+ 
+    display: grid;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Shadows Into Light', sans-serif;
+}
 .heart_image{
     height: 50;
     width: 50px;
 }
 .board{
-    background-color: aquamarine;
+    
     display: flex;
     flex-direction: column;
+    border-style: double;
     
 }
 .grid_numbers{
-    color:blue;
+
     
 }
 .grid{
-    background-color: blueviolet;
+   
     display: flex;
     
     height: 80px;
@@ -23,16 +36,31 @@
 .grid_numbers_button{
     width: 80px;
     height: 80px;
+    border-style: double;
+
+}
+.grid_numbers_button:hover{
+    cursor: pointer;
+    background-color: #d7fee4;
 }
 .col_sum_box,.hearts{
     display: flex;
-    flex-basis: 80px;
+    grid-template-columns: auto;
     align-items: center;
     text-align: center;
     margin-left: 80px;
+    justify-content: center;
+    
 }
 .col_sum{
+  
     width: 80px;
+    align-content:center;
+    background-color:#badbc5;
+    height: 80px;
+    
+    
+ 
 }
 .second_box{
     display: grid;
@@ -40,23 +68,13 @@
 }
 .row_sum_box{
     display: grid;
-    background-color: maroon;
+    background-color: #badbc5;
     align-items: center;
     text-align: center;
-}
-.iframe-container{
-    width: 700px;
-    height: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    display: none;
+    border-style:double;
 }
 
 
-.stopwatch{
-    color: lawngreen;
-    font-size: 30px;
-}
 .result_text{
     color: bisque;
 }
@@ -66,3 +84,139 @@
 .table_content{
     background-color: lightcoral;
 }
+/* Iframe Container */
+.iframe{
+    height: 80px;
+    width: 250px;
+    border: none;
+    
+}
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Set the height to your desired value */
+    background-color: #A3C1AD;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  /* Responsive Iframe */
+  
+  .responsive-iframe {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Set the aspect ratio to 16:9 */
+  }
+  
+  .responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  /* Media Queries */
+  .iframe-container{
+
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: none;
+}
+
+  /* Large screens (Desktops) */
+  
+  @media (min-width: 1200px) {
+    .iframe-container {
+      height: 600px;
+    }
+    .responsive-iframe {
+      padding-bottom: 66.67%; /* Set the aspect ratio to 16:9 */
+    }
+  }
+  
+  /* Medium screens (Laptops) */
+  
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .iframe-container {
+      height: 500px;
+    }
+    .responsive-iframe {
+      padding-bottom: 56.25%; /* Set the aspect ratio to 16:9 */
+    }
+  }
+  
+  /* Small screens (Tablets) */
+  
+  @media (min-width: 480px) and (max-width: 767px) {
+    .iframe-container {
+      height: 400px;
+    }
+    .responsive-iframe {
+      padding-bottom: 45.83%; /* Set the aspect ratio to 16:9 */
+    }
+  }
+  
+  /* Extra small screens (Mobiles) */
+  
+  @media (max-width: 479px) {
+    .iframe-container {
+      height: 300px;
+    }
+    .responsive-iframe {
+      padding-bottom: 37.5%; /* Set the aspect ratio to 16:9 */
+    }
+  }
+.top_part{   
+}
+.top_box{
+    display: flex;
+
+    flex-direction: row;
+
+
+}
+
+.top_buttons {
+    display: flex;
+
+    flex-direction: row;
+    position:absolute;
+    right:10px;
+    top:20px;
+
+
+    column-gap: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+  
+
+.leaderboard_button, .logout_button {
+    background-color: #A3C1AD;
+    font-family: 'Atma', sans-serif;
+    font-size: 25px;
+    cursor: pointer;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #000;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  .leaderboard_button:hover, .logout_button:hover {
+    background-color: #badbc5;
+  }

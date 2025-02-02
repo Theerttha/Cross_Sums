@@ -6,22 +6,23 @@
         </title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+        
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Indie+Flower&family=Jua&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{url_for('static', filename='css/game.css')}}">
+
         <script src="{{url_for('static',filename='js/script.js')}}">
 
         </script> 
         {% block head %}
         {% endblock %}
     </head>
+
     <body class="main_body" id="body">
         <div class="top_part">
             {% block buttons %}
             {% endblock %}
-
+    
         </div>
 
         <div class="body">

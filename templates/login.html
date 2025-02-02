@@ -1,17 +1,29 @@
 {% extends "index.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+{% endblock %}
 {% block content %}
     <form action="/" method="POST">
         <div class="main" id="main">
             <label class="text_login">Enter username</label>
             <input type="text" class="input_login" name="user" id="user">
+            {% if user_exists==False %}
+                <h class="exists_message">
+                    Username does not exist
+                </h>
+            {% endif %}
             <h class="text_login">Enter password</h>
             <input type="'text" class="input_login" name="password" id="password">
-            <button class="login">
-                <a class=login_button_text>
+            <form action="/"method="POST" name="login_page">
+                <button class="login" name="login_button" value="1">
+          
                     LOG IN
-                </a>
+        
          
-            </button>
+                </button>
+
+            </form>
+
         </div>
 
     </form>
@@ -21,12 +33,16 @@
 
         </div>
         <div class="register_button_box">
-            <button class="register_button">
-                <a class="register_button_text" href="/register">
-                    REGISTER
-                </a>
-                
-            </button>
+            <form action="/" method="POST" name="register_button">
+                <button class="register_button" value="2" name="register_button">
+                  
+                        REGISTER
+          
+                    
+                </button>
+
+            </form>
+
 
         </div>
         
