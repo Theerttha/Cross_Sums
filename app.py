@@ -10,7 +10,7 @@ if os.environ.get('RENDER'):  # Running on Render
     database_url = os.environ.get('DATABASE_URL')
     if database_url and database_url.startswith("postgres://"):
         database_url = database_url.replace("postgres://", "postgresql://", 1)
-database_url="postgresql://pheonix_protocol:15oCUeAKcbej9PnPEtlQd4WWImruy1HL@dpg-cuahs0tsvqrc73dp1uvg-a.oregon-postgres.render.com/community_r69k"
+
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
