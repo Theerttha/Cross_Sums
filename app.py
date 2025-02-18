@@ -53,9 +53,10 @@ class User(db.Model):
 class Userlog(db.Model):
     __tablename__ = 'userlog'
     __table_args__ = {'extend_existing': True}
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)    
     username = db.Column(db.String(30), nullable=False)
-    time=db.Column(db.String(8))
+    time=db.Column(db.Integer,nullable=False)
+
 
     def __repr__(self):
         return f'<Userlog {self.username}>'
@@ -76,7 +77,6 @@ def login():
         if user:
             session.clear()
             session['username']=user_name
-
    
                 
             if login is not None:
@@ -121,6 +121,7 @@ def game():
         col_sum=[]
         indexes=[]
         print(session)
+     
         if 'username' in session:
             print("True")
             User_name=session['username']
@@ -195,10 +196,14 @@ def game():
             session['lives']=hearts
         if session['lives']==0:
             session['result']=0
+            session['time']=time.time()-session['begin_time']
             return redirect(url_for('result'))
         n=len(grid)
         if row.count(0)==n and col.count(0)==n:
             session['result']=1
+            session['game_id']=1
+            
+            session['time']=time.time()-session['begin_time']
             return redirect(url_for('result'))
         session['grid']=grid
         session['row']=row
@@ -212,20 +217,20 @@ def result():
         print(session)
 
         if session['result']==1:
-            
-            
-            end_time=time.time()
-            period=end_time-session['begin_time']
-            new_tuple = Userlog(username=session['username'], time=int(period))
-
-            try:
-                db.session.add(new_tuple)
-                db.session.commit()
-            except Exception as e:
-                db.session.rollback()
-                return "error"
- 
-            return render_template("result.html", res=session['result'],time=period)
+            if session['game_id']==1:
+                session['game_id']=0
+                period=int(session['time'])
+                new_tuple = Userlog(username=session['username'], time=int(period))
+                try:
+                    db.session.add(new_tuple)
+                    db.session.commit()
+                except Exception as e:
+                    db.session.rollback()
+                    return "error"
+    
+                return render_template("result.html", res=session['result'],time=period)
+            else:
+                return redirect(url_for('result'))
         else:
 
             return render_template("result.html", res=session['result'])
@@ -257,15 +262,20 @@ def interface():
             return redirect(url_for('leaderboard'))
         elif next_page=="0":
             return redirect(url_for('login'))
-@app.route('/leaderboard',methods=['GET'])
+@app.route('/leaderboard',methods=['GET','POST'])
 def leaderboard():
     if request.method=='GET':
-        x=Userlog.query.order_by(Userlog.time).limit(5).all()
+        x=Userlog.query.order_by(Userlog.time).limit(10).all()
         for i in x:
             print(i.time,x[0])
         print(x)
         return render_template("leader.html",leaderboard=x)
-
+    if request.method=='POST':
+        go_back=request.form.get("leaderboard_button")
+        if(go_back=="1"):
+            return redirect(url_for('interface'))
+        else:
+            return redirect(url_for('leaderboard'))
 def init_db():
     with app.app_context():
         db.create_all()

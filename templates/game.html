@@ -57,11 +57,11 @@
                     {% set p=loop.index0 %}
                     <form action="/game" method="POST" name="get_data">
                         {% if row[k]==0 %}
-                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color:#6BC8F5;">
+                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color:#94d5f5;">
                                 {{ j }}
                             </button>
                         {% elif col[p]==0 %}
-                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: #6BC8F5;">
+                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: #94d5f5;">
                                 {{ j }}
                             </button>
                         {% else %}

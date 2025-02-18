@@ -2,8 +2,20 @@
 {% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
 {% endblock %}
+{% block buttons %}
+<form action="/leaderboard" method="POST" name="leaderboard_button">
+    <div class="top_buttons_leader">
+        <button type="submit" name="leaderboard_button" value={{1}} class="go_back_button">
+            Go Back
+        </button>
+
+
+    </div>
+
+</form>
+{% endblock %}
 {% block content %}
-    <table>
+    <table class="table_overall">
         <tr>
             <th class="table_head">
                 sl.no
