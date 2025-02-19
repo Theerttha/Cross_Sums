@@ -129,8 +129,8 @@ def game():
             session['username']=User_name
         else:
             return "error"
-        n=4
-        
+        n=6
+        #making the board
         for i in range(n):
             l=[]
             for j in range(n):
@@ -155,6 +155,22 @@ def game():
             indexes.append(l)
             print(row,col)
             row_sum.append(s)
+        
+            while i==n-1 and n in col:
+                print("col",col)
+                l=[]
+                x=random.randint(2,n-2)
+                ind=col.index(n)
+                for j in range(x):
+                    y=random.randint(0,n-1)
+                    while(y in l and row[y]==1):
+                        y=random.randint(0,n-1)
+                    l.append(y)
+                    col[ind]-=1
+                    row[y]-=1
+                    indexes[y]+=[ind]
+                    row_sum[y]+=grid[y][ind]
+            
 
         for i in range(n):
             s=0
