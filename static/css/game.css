@@ -396,9 +396,13 @@
 }
 
 .board {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   min-width: 300px;
   max-width: 100%;
+  align-items: center;
+  text-align: center;
 }
 
 .rules {
@@ -448,11 +452,14 @@
       margin-left: 40px;
   }
   
-  .grid_numbers_button {
+  .grid_numbers_button{
       width: 80px;
       height: 80px;
   }
-  
+  .second_box{
+      display: grid;
+      grid-template-columns: 80px auto;
+  }
   .col_sum {
       width: 76px;
   }
@@ -460,7 +467,7 @@
 
 /* Medium screens (992px - 1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .grid_numbers_button {
+  .grid_numbers_button,.row_sum {
       width: 70px;
       height: 70px;
   }
@@ -469,7 +476,10 @@
       width: 66px;
       height: 70px;
   }
-  
+  .second_box{
+    display: grid;
+    grid-template-columns: 70px auto;
+  }
   .grid {
       height: 70px;
   }
@@ -480,7 +490,10 @@
   .board_and_rules {
       gap: 20px;
   }
-  
+  .second_box{
+    display: grid;
+    grid-template-columns: 60px auto;
+}
   .grid_numbers_button {
       width: 60px;
       height: 60px;
@@ -490,7 +503,7 @@
       width: 56px;
       height: 60px;
   }
-  
+
   .grid {
       height: 60px;
   }
@@ -529,7 +542,10 @@
   .col_sum_box, .hearts {
       margin-left: 50px;
   }
-  
+  .second_box{
+    display: grid;
+    grid-template-columns: 50px auto;
+  }
   .top_buttons {
       width: 100%;
       justify-content: center;
@@ -562,9 +578,10 @@
       margin-left: 40px;
   }
   
-  .row_sum_box {
-      font-size: 16px;
-  }
+  .second_box{
+    display: grid;
+    grid-template-columns: 40px auto;
+}
   
   .heart_image {
       height: 40px;
