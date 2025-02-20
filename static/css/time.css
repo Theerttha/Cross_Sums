@@ -8,3 +8,67 @@
     margin-left: 10px;
    
 }
+/* Time */
+
+
+  
+  /* Media Queries for Time */
+  
+  /* Large screens (Desktops) */
+  
+  @media (min-width: 1200px) {
+    .time {
+      width: 80%;
+      max-width: 800px;
+    }
+  }
+  
+  /* Medium screens (Laptops) */
+  
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .time {
+      width: 90%;
+      max-width: 600px;
+    }
+  }
+  
+  /* Small screens (Tablets) */
+  
+  @media (min-width: 480px) and (max-width: 767px) {
+    .time {
+      width: 95%;
+      max-width: 400px;
+    }
+  }
+  
+  /* Extra small screens (Mobiles) */
+  
+  @media (max-width: 479px) {
+    .time {
+      width: 98%;
+      max-width: 300px;
+    }
+  }
+  
+  /* Minimized window */
+  
+  @media (max-width: 600px) {
+    .time {
+      width: 90%;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .time {
+      width: 95%;
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .time {
+      width: 98%;
+      max-width: 200px;
+    }
+  }
