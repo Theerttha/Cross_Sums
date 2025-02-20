@@ -401,3 +401,94 @@
 .go_back_button:hover {
   background-color: #badbc5;
 }
+/* Interface Text Box */
+
+
+
+/* Media Queries for Interface Text Box */
+
+/* Large screens (Desktops) */
+
+@media (min-width: 1200px) {
+  .interface_text_box {
+    
+    max-width: 600px;
+    
+  }
+  .interface_text{
+    font-size: 100px;
+  }
+}
+
+/* Medium screens (Laptops) */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .interface_text_box {
+    
+    max-width: 500px;
+  }
+  .interface_text{
+    font-size: 90px;
+  }
+}
+
+/* Small screens (Tablets) */
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .interface_text_box {
+   
+    max-width: 400px;
+    
+  }
+  .interface_text{
+    font-size: 70px;
+  }
+}
+
+/* Extra small screens (Mobiles) */
+
+@media (max-width: 479px) {
+  .interface_text_box {
+
+    max-width: 300px;
+ 
+  }
+  .interface_text{
+    font-size: 70px;
+  }
+}
+
+/* Minimized window */
+
+@media (max-width: 600px) {
+  .interface_text_box {
+
+    max-width: 400px;
+ 
+  }
+  .interface_text{
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 400px) {
+  .interface_text_box {
+    
+    max-width: 300px;
+
+    
+  }
+  .interface_text{
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 300px) {
+  .interface_text_box {
+    
+    max-width: 200px;
+  }
+  .interface_text {
+    font-size: 40px;
+  }
+}
