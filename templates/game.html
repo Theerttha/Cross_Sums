@@ -38,51 +38,66 @@
 {% block content %}
     
 
-    <div class="hearts">
-        {% for i in range(hearts) %}   
-            <img src="{{ url_for('static', filename='images/heart.png') }}" class="heart_image" alt="Heart">
-        {% endfor %}
-    </div>
-    <div class="board">
-        <div class="col_sum_box">
-            {% for i in col_sum %}
-            <div class="col_sum">{{i}}</div>
-            {% endfor %}
-        </div>
-        <div class="second_box">
-        {% for i in board %}
-            <div class="row_sum_box">
-                <h class="grid_numbers">{{ row_sum[loop.index0] }}</h>
-            </div>
-            {% set k=loop.index0 %}
-            <div class="grid">
-                {% for j in i %}
-                    {% set p=loop.index0 %}
-                    <form action="/game" method="POST" name="get_data">
-                        {% if row[k]==0 %}
-                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color:#94d5f5;">
-                                {{ j }}
-                            </button>
-                        {% elif col[p]==0 %}
-                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: #94d5f5;">
-                                {{ j }}
-                            </button>
-                        {% else %}
-                            <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color:#5F9EA0;" >
-                                {{ j }}
-                            </button>
-                        {% endif %}
-                    </form>
-      
+
+    <div class="board_and_rules">
+        <div class="board">
+            <div class="hearts">
+                {% for i in range(hearts) %}   
+                    <img src="{{ url_for('static', filename='images/heart.png') }}" class="heart_image" alt="Heart">
                 {% endfor %}
             </div>
-        {% endfor %}
-        
+            <div class="col_sum_box">
+                {% for i in col_sum %}
+                <div class="col_sum">{{i}}</div>
+                {% endfor %}
+            </div>
+            <div class="second_box">
+            {% for i in board %}
+                <div class="row_sum_box">
+                    <h class="grid_numbers">{{ row_sum[loop.index0] }}</h>
+                </div>
+                {% set k=loop.index0 %}
+                <div class="grid">
+                    {% for j in i %}
+                        {% set p=loop.index0 %}
+                        <form action="/game" method="POST" name="get_data">
+                            {% if row[k]==0 %}
+                                <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color:#94d5f5;">
+                                    {{ j }}
+                                </button>
+                            {% elif col[p]==0 %}
+                                <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color: #94d5f5;">
+                                    {{ j }}
+                                </button>
+                            {% else %}
+                                <button class="grid_numbers_button" type="submit" value="{{k}},{{ loop.index0}}" name="get_data" style="background-color:#5F9EA0;" >
+                                    {{ j }}
+                                </button>
+                            {% endif %}
+                        </form>
+          
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            
+    
+            </div>
+            
+                
+        </div>
+        <div class="rules">
+            <div class="rules_text">
+                Click to eliminate a number.
+            </div>
+            <div class="rules_text">
+                If the sum of the remaining numbers in a row or column is equal to the number on the left or top, the row or column will be eliminated.
+
+            </div>
 
         </div>
-        
-            
+
     </div>
+
 
     
 {% endblock %}

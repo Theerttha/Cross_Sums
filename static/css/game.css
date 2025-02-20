@@ -227,3 +227,23 @@
   .leaderboard_button:hover, .logout_button:hover {
     background-color: #badbc5;
   }
+  .board_and_rules{
+    display: flex;
+    flex-direction:row;
+
+    
+  }
+  .rules{
+    display: flex;
+    color: #badbc5;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    text-align: end;
+    margin-left: 100px;
+    gap:20px;
+   
+  }
+  .rules_text{
+    
+  }

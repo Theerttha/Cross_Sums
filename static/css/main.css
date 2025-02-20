@@ -190,9 +190,11 @@
 .interface_box{
     margin-top: 70px;
     display: grid;
+    row-gap: 20px;
     
-    row-gap: 20px;    
+    
 }
+
 
 .interface_playbutton{
     border-radius: 30px;
